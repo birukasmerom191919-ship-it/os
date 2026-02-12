@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | BootFlow Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @media (max-width: 740px) {
+      .nav-links {
+        display: flex;
+        position: static;
+        width: auto;
+        padding: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background: transparent;
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container">
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="index.html" class="brand">BootFlow <span>Atlas</span></a>
+        <ul class="nav-links" id="mainNav">
+          <li><a href="index.html#sim">Video</a></li>
+          <li><a href="index.html#stages">Stages</a></li>
+          <li><a href="index.html#history">History</a></li>
+          <li><a href="index.html#compare">BIOS vs UEFI</a></li>
+          <li><a href="index.html#lab">Failure Lab</a></li>
+          <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-main">
+          <p class="eyebrow">School Assignment</p>
+          <h1>About Me</h1>
+          <p>
+            My name is Biruk Asmerom. I created this website as part of my school assignment
+            to explain the computer boot process in a clear and interactive way.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="index.html">Back to Home</a>
+            <a class="btn btn-ghost" href="os assessment.html">Open Assessment Page</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Student Information</h3>
+          <ul>
+            <li><strong>Name:</strong> Biruk Asmerom</li>
+            <li><strong>ID:</strong> UGR/206652/17</li>
+            <li><strong>Section:</strong> 3</li>
+          </ul>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About This Website</h2>
+          <p>
+            This project is designed to help students understand what happens from the moment
+            a computer is powered on until the operating system becomes ready.
+          </p>
+        </div>
+        <article class="stage-panel">
+          <p>
+            The website presents the boot process in step-by-step form, with visual sections
+            and practical explanations. It covers key concepts like power-on initialization,
+            firmware behavior, bootloader selection, and kernel startup.
+          </p>
+          <p>
+            My goal was to make technical ideas easier to learn by combining short theory,
+            comparison between BIOS and UEFI, and examples of common boot failures.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>BootFlow Atlas</h3>
+        <p>Created by Biruk Asmerom for academic learning and presentation.</p>
+      </div>
+      <div>
+        <h4>Assignment Focus</h4>
+        <ul>
+          <li>Computer boot sequence</li>
+          <li>BIOS and UEFI understanding</li>
+          <li>OS startup fundamentals</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Section</h4>
+        <p>Section 3</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BootFlow Atlas | Interactive Computer Boot Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container">
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="#top" class="brand">BootFlow <span>Atlas</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
+        <ul class="nav-links" id="mainNav">
+          <li><a href="#sim">Video</a></li>
+          <li><a href="#stages">Stages</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#compare">BIOS vs UEFI</a></li>
+          <li><a href="#lab">Failure Lab</a></li>
+          <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-main">
+          <p class="eyebrow">Web-Based Booting School</p>
+          <h1>See a computer wake up from raw electricity to a running operating system.</h1>
+          <p>
+            This is a visual-first learning platform for boot internals. You do not only read each step:
+            you watch a guided boot process video and inspect why each transition exists.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sim">Watch Video</a>
+            <a class="btn btn-ghost" href="#lab">Try Failure Lab</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>What You Will Understand</h3>
+          <ul>
+            <li>How power sequencing, reset vectors, and firmware entry are linked.</li>
+            <li>How POST, boot policy, and trust checks gate OS startup.</li>
+            <li>How bootloader handoff contracts the kernel relies on.</li>
+            <li>How modern boot differs from classic BIOS-era systems.</li>
+          </ul>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="sim">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Boot Process Video</h2>
+          <p>Watch this detailed visual walkthrough of how computers boot internally.</p>
+        </div>
+
+        <div class="sim-wrap" aria-label="Boot process video">
+          <video class="hover-autoplay-video" controls preload="metadata" muted playsinline poster="images/cover.png">
+            <source src="videos/Computer%20Boot%20Process%20animation(1080P_HD).mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="stages">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Stage-by-Stage Boot Intelligence</h2>
+          <p>Click a stage to inspect theory, purpose, failure symptoms, and hardware signals.</p>
+        </div>
+
+        <div class="mode-switch" role="tablist" aria-label="Boot mode selector">
+          <button type="button" class="mode-btn active" id="modeUefiBtn" data-mode="uefi">UEFI Path</button>
+          <button type="button" class="mode-btn" id="modeBiosBtn" data-mode="bios">Legacy BIOS Path</button>
+        </div>
+
+        <div class="stage-tabs" id="stageTabs" role="tablist" aria-label="Boot stage selector"></div>
+
+        <article class="stage-panel" aria-live="polite">
+          <h3 id="stageTitle"></h3>
+          <p id="stageSummary"></p>
+          <p id="stagePurpose" class="stage-purpose"></p>
+          <div class="stage-grid" id="stageTheory"></div>
+          <div class="callout-grid">
+            <div class="callout">
+              <h4>Likely Failure If This Breaks</h4>
+              <p id="stageFailure"></p>
+            </div>
+            <div class="callout">
+              <h4>Hardware and Software Contract</h4>
+              <p id="stageContract"></p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Booting Evolution Timeline</h2>
+          <p>Understand how boot architecture changed from BIOS-era constraints to modern trusted boot chains.</p>
+        </div>
+        <div class="history-track" id="historyTrack"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="compare">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Legacy BIOS vs UEFI</h2>
+          <p>Both can boot an OS, but they differ heavily in architecture, limits, and security model.</p>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card" id="uefiCard">
+            <h3>UEFI Boot</h3>
+            <ul id="uefiList"></ul>
+          </article>
+          <article class="compare-card" id="biosCard">
+            <h3>Legacy BIOS Boot</h3>
+            <ul id="biosList"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lab">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Boot Failure Debug Lab</h2>
+          <p>Pick a symptom, then reveal the most likely failing stage and rationale.</p>
+        </div>
+        <div class="lab-grid">
+          <div class="lab-buttons" id="labButtons"></div>
+          <article class="lab-result" id="labResult" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>BootFlow Atlas</h3>
+        <p>Learn booting by seeing state transitions, not memorizing disconnected terms.</p>
+      </div>
+      <div>
+        <h4>Core Learning Track</h4>
+        <ul>
+          <li>Electrical and reset foundations</li>
+          <li>Firmware decisions and trust gates</li>
+          <li>Bootloader handoff mechanics</li>
+          <li>Kernel bring-up to user space</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tip</h4>
+        <p>Use the failure lab after each stage to build troubleshooting intuition alongside theory.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
